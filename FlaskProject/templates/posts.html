@@ -1,0 +1,22 @@
+{%
+    extends "base.html"
+%}
+
+{% block title %}
+    Все записи
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Все записи</h1>
+        <button id="delete-all-posts">Delete all</button>
+        {% for post in posts %}
+            <form action="/posts" method="GET">
+                <input type="hidden" value="{{post.id}}" name="id"/>
+                <input type="text" value="{{post.title}}">
+                <input type="text" value="{{post.text}}">
+                <button type="submit">Get this post</button>
+            </form>
+        {% endfor %}
+    </div>
+{% endblock %}

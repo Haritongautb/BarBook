@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"
+        integrity="sha512-b2QcS5SsA8tZodcDtGRELiGv5SaKSk1vDHDaQRda0htPYWZ6046lr3kJ5bAAQdpV2mmA/4v0wQF9MyU6/pDIAg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ url_for('static', filename='scripts/main.js') }}"></script>
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <header id="header" class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+              <div class="col-md-3 mb-2 mb-md-0">
+                <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
+                    <img class="header__img" src="{{ url_for('static', filename='img/Aang.png') }}" alt="Aang image">
+                </a>
+              </div>
+
+              <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+                <li><a href="{{ url_for('index')}}" class="nav-link px-2 link-secondary">Главная</a></li>
+                <li><a href="{{ url_for('about')}}" class="nav-link px-2">О нас</a></li>
+                <li><a href="{{ url_for('create')}}" class="nav-link px-2">Добавить запись</a></li>
+                <li><a href="{{ url_for('posts')}}" class="nav-link px-2">Все записи</a></li>
+                <li><a href="{{ url_for('postsJSON')}}" class="nav-link px-2">Создать записи с помощью JSON</a></li>
+              </ul>
+
+              <div class="col-md-3 text-end">
+                <button type="button" class="btn btn-outline-primary me-2">Войти</button>
+                <button type="button" class="btn btn-primary">Зарегистрироваться</button>
+              </div>
+            </header>
+        </div>
+
+        <main class="main">
+            {% block body %}
+
+            {% endblock %}
+        </main>
+
+        <footer class="footer py-3 my-4">
+            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+              <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
+              <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Features</a></li>
+              <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Pricing</a></li>
+              <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
+              <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
+            </ul>
+            <p class="text-center text-body-secondary">© 2023 Company, Inc</p>
+        </footer>
+    </div>
+</body>
+</html>
